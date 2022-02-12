@@ -15,4 +15,5 @@ modelMessage(sequelize)
 
 module.exports = {
   conn: sequelize, //se exporta la conexion
+  ...sequelize.models
 };

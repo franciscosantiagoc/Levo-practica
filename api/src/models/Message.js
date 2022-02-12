@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
-  sequelize.define("message",
+  sequelize.define("Message",
   {
     messageid: {
       type: DataTypes.UUID,
@@ -23,5 +23,5 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     }
   },
-  { timestamps: false }
+  { timestamps: true }
 )};
