@@ -1,0 +1,101 @@
+.container{
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
+  background: url(https://cdn.pizap.com/pizapfiles/images/photo_backgrounds_textures_app05.jpg), rgba(0, 0, 0, 0.9);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 82px 180px 33px 180px;
+  position: relative;
+}
+.contactForm{
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 68px;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.contactTitle {
+  display: block;
+  width: 100%;
+  font-family: Poppins-Bold;
+  font-size: 39px;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color: #333333; */
+  line-height: 1.2;
+  text-align: left;
+  padding-bottom: 44px;
+}
+
+.formGroup{
+  width: calc((100% - 30px) / 2);
+  margin-bottom: 15px;
+}
+
+.formGroup span{
+  font-family: Poppins-Regular;
+  font-size: 17px;
+  /* color: #999999; */
+  line-height: 1.5;
+  padding-left: 5px;
+  
+}
+
+.formGroup input{
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Poppins-SemiBold;
+  font-size: 18px;
+  /* color: #555555; */
+  background-color: #fff;
+  line-height: 1.2;
+  padding: 0 5px;
+  height: 40px;
+}
+
+.formGroup100 {
+  width: 100%;
+  padding-bottom: 13px;
+  margin-bottom: 65px;
+}
+
+.formGroup100 textarea{
+  width: 100%;
+  min-height: 110px;
+  padding-top: 9px;
+  padding-bottom: 13px;
+}
+
+.formGroup100 button{
+  width: 20vw;
+  height: 4.5vw;
+  max-width: 250px;
+  max-height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .container{
+    padding: 82px 5vw 0 5vw;
+  }
+  .formGroup{
+    width: 100%;
+  }
+}
