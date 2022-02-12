@@ -1,4 +1,8 @@
 const { conn } = require('./src/db.js');
-conn.sync({ force: true }).then( async() => {
-  console.log('%s listening at 3001'); 
-})
+const server = require('./src/app.js');
+
+server.listen(process.env.PORT||3001,  () => {
+  conn.sync({ force: true }).then( async() => {
+    console.log('%s listening at 3001'); 
+  })
+});
