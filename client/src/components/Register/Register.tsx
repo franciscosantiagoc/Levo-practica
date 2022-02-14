@@ -9,7 +9,7 @@ type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 function Register(): JSX.Element{
   const dispatch = useDispatch();
-  //const status = useSelector(state => state.status) || [];
+  const messInput = useRef<HTMLTextAreaElement>(null);
   const initialData = {
     name: '',
     email:'',
@@ -39,6 +39,7 @@ function Register(): JSX.Element{
       e.preventDefault();
       dispatch(postMessage(data))
       setData(initialData)
+      messInput.current?.focus();
   }
   useEffect(()=>{
     if(error){
@@ -60,7 +61,7 @@ function Register(): JSX.Element{
         </div>
         <div className={st.formGroup100}>
           <span>Mensaje</span>
-          <textarea name="message" placeholder='Ingrese su mensaje' value={data.message} onChange={handlerChange}/>
+          <textarea name="message" placeholder='Ingrese su mensaje' value={data.message} onChange={handlerChange}  autoFocus ref={messInput}/>
         </div>
         <div className={`${st.formGroup100} ${st.center}`}>
           <button type="submit">Enviar</button>

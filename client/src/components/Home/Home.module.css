@@ -1,0 +1,15 @@
+.container{
+  background: -webkit-linear-gradient(45deg, #4158d0, #50bac8);
+  min-height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container button{
+   width: 350px;
+   height: 50px;
+   margin-bottom: 50px;
+}
+

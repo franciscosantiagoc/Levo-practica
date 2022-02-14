@@ -11,8 +11,9 @@
   overflow: hidden;
   width: 80%;
   max-width: 1000px;
+  min-width: 850px;
   margin: 0 auto;
-  position: relative;;
+  position: relative;
 }
 
 .table thead tr {
@@ -54,11 +55,45 @@
   text-align: center;
 }
 
-.button{
-  width: 80px;
-  height: 80%;
+.buttonE{
+  width: 30px;
+  height: 30px;
   background-color: rgb(40, 214, 9);
 }
-.button:hover{
+.buttonE:hover{
   background-color: rgb(68, 116, 60);
+}
+
+.buttonD{
+  width: 30px;
+  height: 30px;
+  background-color: rgb(238, 24, 4);
+}
+.buttonD:hover{
+  background-color: rgb(119, 24, 24);
+}
+
+
+.modal{
+  position:fixed;
+  z-index:100;
+  display: flex;
+  width: 100%;
+}
+
+.center{
+  display: block;
+}
+.center input{
+  display: block;
+  margin: 10px auto;
+    width: 50%;
+    background: transparent;
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    /* color: #555555; */
+    background-color: #fff;
+    line-height: 1.2;
+    padding: 0 5px;
+    height: 40px;
 }

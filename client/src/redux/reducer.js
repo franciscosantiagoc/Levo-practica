@@ -3,7 +3,8 @@ import {
   GET_MESSAGE,
   POST_MESSAGE,
   PUT_MESSAGE,
-  DELETE_MESSAGE
+  DELETE_MESSAGE,
+  RESET
 } from './actionsTypes'
 
 const initialState = {
@@ -24,6 +25,25 @@ export const Reducer  = (state = initialState, action) => {
       return{
         ...state,
         ...action.payload
+      }
+      break;
+    case PUT_MESSAGE:
+      return{
+        ...state,
+        status: action.payload
+      }
+      break;
+    case DELETE_MESSAGE:
+      return{
+        ...state,
+        status: action.payload
+      }
+      break;
+
+    case RESET:
+      return{
+        ...state,
+        status: action.payload
       }
       break;
     

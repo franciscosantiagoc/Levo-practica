@@ -54,7 +54,7 @@ export const putMessages=(data)=>{
 export const delMessages=(id)=>{
   try {
     return async(dispatch)=>{
-      let resp = await axios.put(`${SERVER}messages/delete`,id)
+      let resp = await axios.delete(`${SERVER}messages/${id}`)
       return dispatch({
         type: DELETE_MESSAGE,
         payload: resp.data
@@ -62,5 +62,11 @@ export const delMessages=(id)=>{
     }
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const RESET=()=>{
+  return {
+    type: RESET
   }
 }
