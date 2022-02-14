@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import st from './Register.module.css'
 import swal from 'sweetalert2'
 import {message} from '../Helpers/messageInt'
-import {postMessage} from '../../redux/actions'
+import {postMessage,RESETMESS} from '../../redux/actions'
+import {RootReducer} from '../../redux/store';
+type IRootState = ReturnType<typeof RootReducer>;
 type FormElement = React.FormEvent<HTMLFormElement>;
 type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 function Register(): JSX.Element{
   const dispatch = useDispatch();
+  const status = useSelector<IRootState, string>(state => state.status);
+  const errorR = useSelector<IRootState, string>(state => state.error);
   const messInput = useRef<HTMLTextAreaElement>(null);
   const initialData = {
     name: '',
@@ -22,7 +26,7 @@ function Register(): JSX.Element{
     //console.log('test', /[a-zA-Z0-9_ _-_,]$/.test(value))
     if(name === 'name' && value && !/[a-zA-Z0-99áéíóúÁÉÍÓÚ_\ ]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos')
-    }else if(name === 'message' && value && !/[a-zA-Z0-99áéíóúÁÉÍÓÚ_¿?!¡,.\- ]$/.test(value)){
+    }else if(name === 'message' && value && !/[a-zA-Z0-9áéíóúÁÉÍÓÚ_¿?!¡,.\- ]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos y signos de puntuacion')
     }else if(name === 'email' && value && !/[a-zA-Z0-9áéíóúÁÉÍÓÚ.-_]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos y signos de puntuacion')
@@ -46,6 +50,14 @@ function Register(): JSX.Element{
       swal.fire({title:'Error inesperado', text:error,icon:'error'}).then(res=>setError(''))
     }
   },[error])
+
+  useEffect(()=>{
+    if(status==="success"){
+      swal.fire({title:'Actualización exitosa', text: 'Acción realizada corretamente', icon:'success'}).then(()=>dispatch(RESETMESS()))
+    }else if(status==="failed"){
+      swal.fire({title:'Actualización fallida', text: errorR?errorR:'Error al realizar la acción', icon:'error'}).then(()=>dispatch(RESETMESS()))  
+    }
+  },[status])
   
   return (
     <div className={st.container}>

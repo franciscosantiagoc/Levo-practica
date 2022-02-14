@@ -3,7 +3,8 @@ import {
   GET_MESSAGE,
   POST_MESSAGE,
   PUT_MESSAGE,
-  DELETE_MESSAGE
+  DELETE_MESSAGE,
+  RESET
 } from './actionsTypes'
 
 const SERVER = process.env.REACT_APP_SERVER || "http://localhost:3001/"
@@ -65,8 +66,10 @@ export const delMessages=(id)=>{
   }
 }
 
-export const RESET=()=>{
-  return {
-    type: RESET
+export const RESETMESS=()=>{
+  return async(dispatch)=>{
+    return dispatch({
+      type: RESET
+    })
   }
 }

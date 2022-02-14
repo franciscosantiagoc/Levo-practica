@@ -30,7 +30,7 @@ export const Reducer  = (state = initialState, action) => {
     case PUT_MESSAGE:
       return{
         ...state,
-        status: action.payload
+        ...action.payload
       }
       break;
     case DELETE_MESSAGE:
@@ -43,7 +43,8 @@ export const Reducer  = (state = initialState, action) => {
     case RESET:
       return{
         ...state,
-        status: action.payload
+        error: null,
+        status: null,
       }
       break;
     
