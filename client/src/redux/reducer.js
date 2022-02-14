@@ -43,7 +43,8 @@ export const Reducer  = (state = initialState, action) => {
     case RESET:
       return{
         ...state,
-        status: action.payload
+        error: null,
+        status: null,
       }
       break;
     

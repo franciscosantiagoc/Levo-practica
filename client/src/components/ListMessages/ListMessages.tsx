@@ -5,7 +5,7 @@ import st from './ListMessages.module.css'
 import st2 from '../Register/Register.module.css'
 import swal from 'sweetalert2'
 import {message} from '../Helpers/messageInt'
-import {getMessages,putMessages,delMessages,RESET} from '../../redux/actions'
+import {getMessages,putMessages,delMessages,RESETMESS} from '../../redux/actions'
 import {RootReducer} from '../../redux/store';
 type FormElement = React.FormEvent<HTMLFormElement>;
 type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
@@ -82,9 +82,9 @@ function ListMessages(): JSX.Element{
   },[messages])
   useEffect(()=>{
     if(status==="success"){
-      swal.fire({title:'Actualización exitosa', text: 'Acción realizada corretamente', icon:'success'}).then(()=>dispatch(RESET()))
+      swal.fire({title:'Actualización exitosa', text: 'Acción realizada corretamente', icon:'success'}).then(()=>dispatch(RESETMESS()))
     }else if(status==="failed"){
-      swal.fire({title:'Actualización fallida', text: 'Error al realizar la acción', icon:'error'}).then(()=>dispatch(RESET()))  
+      swal.fire({title:'Actualización fallida', text: 'Error al realizar la acción', icon:'error'}).then(()=>dispatch(RESETMESS()))  
     }
   },[status])
 
