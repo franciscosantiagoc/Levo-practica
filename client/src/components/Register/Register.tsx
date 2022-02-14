@@ -22,7 +22,7 @@ function Register(): JSX.Element{
     //console.log('test', /[a-zA-Z0-9_ _-_,]$/.test(value))
     if(name === 'name' && value && !/[a-zA-Z0-99áéíóúÁÉÍÓÚ_\ ]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos')
-    }else if(name === 'message' && value && !/[a-zA-Z0-99áéíóúÁÉÍÓÚ_¿?!¡,.\- ]$/.test(value)){
+    }else if(name === 'message' && value && !/[a-zA-Z0-9áéíóúÁÉÍÓÚ_¿?!¡,.\- ]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos y signos de puntuacion')
     }else if(name === 'email' && value && !/[a-zA-Z0-9áéíóúÁÉÍÓÚ.-_]$/.test(value)){
       setError('Solo se admiten caracteres alfanuméricos y signos de puntuacion')
