@@ -1,0 +1,99 @@
+.container{
+  background: -webkit-linear-gradient(45deg, #4158d0, #50bac8);
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.table{
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.table thead tr {
+  height: 60px;
+  background: #36304a;
+  color: #fff;
+}
+
+.table tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+.table tr td{
+  border: solid 1px black;
+  height: 40px;
+}
+
+.column1 {
+  width: 260px;
+  padding-left: 40px;
+}
+
+.column2 {
+  width: 160px;
+}
+
+.column3 {
+  width: 160px;
+}
+.column4 {
+  width: 160px;
+}
+.column5 {
+  width: 160px;
+  text-align: center;
+}
+
+.buttonE{
+  width: 30px;
+  height: 30px;
+  background-color: rgb(40, 214, 9);
+}
+.buttonE:hover{
+  background-color: rgb(68, 116, 60);
+}
+
+.buttonD{
+  width: 30px;
+  height: 30px;
+  background-color: rgb(238, 24, 4);
+}
+.buttonD:hover{
+  background-color: rgb(119, 24, 24);
+}
+
+
+.modal{
+  position:fixed;
+  z-index:100;
+  display: flex;
+  width: 100%;
+}
+
+.center{
+  display: block;
+}
+.center input{
+  display: block;
+  margin: 10px auto;
+    width: 50%;
+    background: transparent;
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    /* color: #555555; */
+    background-color: #fff;
+    line-height: 1.2;
+    padding: 0 5px;
+    height: 40px;
+}

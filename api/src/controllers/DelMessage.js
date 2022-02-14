@@ -1,11 +1,11 @@
 const {Message} = require('../db')
 
-async function PutMessage(req, res){
+async function DelMessage(req, res){
   try {
-    const {messageid,note} = req.body
+    const {messageid} = req.params
     await Message.update(
       {
-        note
+        status:false
       },
       {
         where: {messageid}
@@ -20,5 +20,5 @@ async function PutMessage(req, res){
 } 
 
 module.exports  = {
-  PutMessage
+  DelMessage
 }
