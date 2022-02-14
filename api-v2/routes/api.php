@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
+Route::get('/messages','App\Http\Controllers\MessageController@index');
+Route::post('/messages','App\Http\Controllers\MessageController@store');
+Route::get('/messages','App\Http\Controllers\MessageController@update');
+Route::delete('/messages/{id}','App\Http\Controllers\MessageController@destroy');
