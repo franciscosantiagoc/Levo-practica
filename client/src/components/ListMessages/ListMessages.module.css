@@ -34,10 +34,13 @@
   border: solid 1px black;
   height: 40px;
 }
-
+.column1 {
+  width: 70px;
+  text-align: center;
+}
 .column1 {
   width: 260px;
-  padding-left: 40px;
+  padding:0 10px;
 }
 
 .column2 {
@@ -87,13 +90,20 @@
 .center input{
   display: block;
   margin: 10px auto;
-    width: 50%;
-    background: transparent;
-    font-family: Poppins-SemiBold;
-    font-size: 18px;
-    /* color: #555555; */
-    background-color: #fff;
-    line-height: 1.2;
-    padding: 0 5px;
-    height: 40px;
+  width: 50%;
+  background: transparent;
+  font-family: Poppins-SemiBold;
+  font-size: 18px;
+  /* color: #555555; */
+  background-color: #fff;
+  line-height: 1.2;
+  padding: 0 5px;
+  height: 40px;
+}
+
+.center select{
+  display: block;
+  margin: 10px auto;
+  width: 250px;
+  height: 40px;
 }

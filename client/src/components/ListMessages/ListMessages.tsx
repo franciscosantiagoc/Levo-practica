@@ -26,6 +26,7 @@ function ListMessages(): JSX.Element{
   const [note,setNote] = useState<string>('')
   const [search,setSearch] = useState<string>('')
   const [error,setError] = useState<string>('')
+  const [fstatus,setFStatus] = useState<string>('active')
   
   function handlerChange({ target: { name, value } }: HandleInputChange){
     //console.log('test', /[a-zA-Z0-9_ _-_,]$/.test(value))
@@ -69,7 +70,12 @@ function ListMessages(): JSX.Element{
   }
 
   function filter(value:string){
+    let st = fstatus==='active'?true:false;
     let filt= messages.filter((mess:message)=>mess.name.includes(value)||mess.email.includes(value)||mess.message.includes(value)||mess.note?.includes(value))
+
+    if(fstatus!='all'){
+      filt= filt.filter(mess=>mess.status===st)
+    }
     setData(filt)
   }
 
@@ -79,7 +85,8 @@ function ListMessages(): JSX.Element{
 
   useEffect(()=>{
     setData(messages)
-  },[messages])
+    if(fstatus!='all')filter('')
+  },[messages,fstatus])
   useEffect(()=>{
     if(status==="success"){
       swal.fire({title:'Actualización exitosa', text: 'Acción realizada corretamente', icon:'success'}).then(()=>dispatch(RESETMESS()))
@@ -123,10 +130,16 @@ function ListMessages(): JSX.Element{
       </div>
       <div className={`${st.center}`}>
         <input name="search" onChange={handlerChange} value={search} placeholder="Ingrese su búsqueda"/>
+        <select onChange={(e)=>{setFStatus(e.target.value)}}>
+          <option value="active">Activos</option>
+          <option value="inactive">Inactivos</option>
+          <option value="all">Todos</option>
+        </select>
       </div>
        <table className={st.table}>
          <thead>
            <tr>
+             <th className={st.column0}>No.</th>
              <th className={st.column1}>Nombre</th>
              <th className={st.column2}>Email</th>
              <th className={st.column2}>Mensaje</th>
@@ -138,6 +151,7 @@ function ListMessages(): JSX.Element{
          </thead>
          <tbody>
           {data.map((mess:message,i:number) =><tr key={i}>
+                <td className={st.column1}>{i}</td>
                 <td className={st.column1}>{mess.name}</td>
                 <td className={st.column2}>{mess.email}</td>
                 <td className={st.column2}>{mess.message}</td>
